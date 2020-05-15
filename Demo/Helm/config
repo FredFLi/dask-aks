@@ -1,0 +1,20 @@
+apiVersion: v1
+clusters:
+- cluster:
+    certificate-authority-data: REDACTED
+    server: REDACTED
+  name: REDACTED
+contexts:
+- context:
+    cluster: REDACTED
+    user: REDACTED
+  name: REDACTED
+current-context: REDACTED
+kind: Config
+preferences: {}
+users:
+- name: REDACTED
+  user:
+    client-certificate-data:REDACTED
+    client-key-data: REDACTED
+    token: REDACTED

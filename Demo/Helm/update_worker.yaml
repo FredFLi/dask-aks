@@ -1,0 +1,26 @@
+image:
+  name: mcr.microsoft.com/azureml/base:intelmpi2018.3-ubuntu16.04
+  pullPolicy: IfNotPresent
+worker:
+  replicas: 20
+  resources:
+    limits:
+      cpu: 1
+      memory: 3G
+    requests:
+      cpu: 1
+      memory: 3G
+  env:
+    - name: EXTRA_APT_PACKAGES
+      value: gcc
+    - name: EXTRA_PIP_PACKAGES
+      value: adlfs azureml-core azureml-dataprep dask[complete] dask-ml[complete] distributed fastparquet fsspec joblib jupyterlab lz4 mpi4py notebook pyarrow
+
+# We want to keep the same packages on the worker and jupyter environments
+jupyter:
+  enabled: true
+  env:
+    - name: EXTRA_APT_PACKAGES
+      value: gcc
+    - name: EXTRA_PIP_PACKAGES
+      value: adlfs azureml-core azureml-dataprep dask[complete] dask-ml[complete] distributed fastparquet fsspec joblib jupyterlab lz4 mpi4py notebook pyarrow
